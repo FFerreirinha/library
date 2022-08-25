@@ -3,7 +3,13 @@ let myBooks = [];
 let addBook = document.getElementById("addbook");
 let loadBook = document.getElementById("loadbook")
 let display = document.getElementById("display");
-
+let submitButton = document.getElementById("submit-button");
+let addBookModal = document.getElementById("add-book-modal");
+let addBookForm = document.getElementById("add-book-form");
+let title = document.getElementById("title");
+let author = document.getElementById("author");
+let pages = document.getElementById("pages");
+let read = document.getElementById("read");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -20,10 +26,7 @@ function addBookToLibrary(book) {
 
 function loadLibrary() {
   // Deleting previous Book Cards
-  const bookCards = document.getElementsByClassName("book-card");
-  for (i = 0; i < bookCards.length; i++) {
-    bookCards[i].remove()
-  }
+  display.textContent = "";
 
   // Loading new Book Cards
   for(i = 0; i < myBooks.length; i++) {
@@ -39,13 +42,30 @@ function loadLibrary() {
 
 }
 
-theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not Read");
 
-addBook.addEventListener("click", () => {addBookToLibrary(theHobbit)});
+
+//Displaying add book modal
+addBook.addEventListener("click", () => {
+  addBookModal.classList.add("active");
+});
 loadBook.addEventListener("click", () => {loadLibrary()});
 
+submitButton.addEventListener("click", () => {
+  //Checks if form is properly filled out before running rest of function
+  if (addBookForm.checkValidity()) {
+    newBook = new Book(title.value, author.value, pages.value, read.checked)
+
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    read.checked = false;
+
+    addBookToLibrary(newBook);
+    
+    //Making add book modal not active
+    addBookModal.classList.remove("active");
+  }
+})
 
 
-theRing = new theHobbit.constructor("The Ring", "J.R.R. Tolkien", 295, "Not Read")
-
-loadLibrary();
+theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not Read");

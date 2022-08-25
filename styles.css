@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+}
+
+.header {
+    position: absolute;
+}
+
+.main-content {
+    position: absolute;
+}
+
+#add-book-modal {
+    margin: 0;
+    height: 50vh;
+    width: 25vw;
+
+    opacity: 0;
+
+    position: fixed;
+
+    left: 35vw;
+    top: 15vh;
+
+    border: pink 10px solid;
+}
+
+.active {
+    opacity: 1 !important;
+}
+
+form {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+#read-slider {
+    height: 2vh;
+}
