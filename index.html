@@ -9,18 +9,17 @@
 </head>
 <body>
     <div class="header">    
+        <header id="title">My Library</header>
         <button id="addbook">Add Book</button>
-        <button id="loadbook">Load Book</button>
-
     </div>        
     <div class="main-content">   
         <div id="display"></div>
     </div> 
     <div id="add-book-modal">
         <form id="add-book-form">
-            <input type="text" placeholder="Title" id="title" name="title" required>
-            <input type="text" placeholder="Author" id="author" name="author" required>
-            <input type="number" placeholder="Pages" id="pages" name="pages" required>
+            <input type="text" placeholder="Title" id="book-title" name="title" required>
+            <input type="text" placeholder="Author" id="book-author" name="author" required>
+            <input type="number" placeholder="Pages" id="book-pages" name="pages" required>
             <label for="read">Read?</label>
             <input type="checkbox" id="read" name="read">
             <button type="button" id="submit-button">Submit</button>

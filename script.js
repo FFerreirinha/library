@@ -1,14 +1,13 @@
 let myBooks = [];
 
 let addBook = document.getElementById("addbook");
-let loadBook = document.getElementById("loadbook")
 let display = document.getElementById("display");
 let submitButton = document.getElementById("submit-button");
 let addBookModal = document.getElementById("add-book-modal");
 let addBookForm = document.getElementById("add-book-form");
-let title = document.getElementById("title");
-let author = document.getElementById("author");
-let pages = document.getElementById("pages");
+let title = document.getElementById("book-title");
+let author = document.getElementById("book-author");
+let pages = document.getElementById("book-pages");
 let read = document.getElementById("read");
 
 function Book(title, author, pages, read) {
@@ -48,7 +47,6 @@ function loadLibrary() {
 addBook.addEventListener("click", () => {
   addBookModal.classList.add("active");
 });
-loadBook.addEventListener("click", () => {loadLibrary()});
 
 submitButton.addEventListener("click", () => {
   //Checks if form is properly filled out before running rest of function
@@ -64,8 +62,9 @@ submitButton.addEventListener("click", () => {
     
     //Making add book modal not active
     addBookModal.classList.remove("active");
+
+    loadLibrary();
   }
 })
-
 
 theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not Read");
