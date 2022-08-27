@@ -9,6 +9,7 @@ let title = document.getElementById("book-title");
 let author = document.getElementById("book-author");
 let pages = document.getElementById("book-pages");
 let read = document.getElementById("read");
+let overlay = document.getElementById("overlay");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -33,8 +34,15 @@ function loadLibrary() {
     bookCard.classList.add("book-card", i);
     display.append(bookCard);
 
+    let j = 0;
+
+    // Writing content of book into book cards
     for (const item in myBooks[i]) {
-      bookCard.innerHTML += myBooks[i][item] + " ";
+      const bookCardElement = document.createElement("p");
+      bookCardElement.classList.add(Object.keys(myBooks[i])[j]);
+      bookCardElement.innerHTML += Object.keys(myBooks[i])[j] + ": " + myBooks[i][item];
+      bookCard.append(bookCardElement);
+      j++;
     }
   }
 
@@ -45,7 +53,8 @@ function loadLibrary() {
 
 //Displaying add book modal
 addBook.addEventListener("click", () => {
-  addBookModal.classList.add("active");
+  overlay.classList.add("overlay-active");
+  addBookModal.classList.add("modal-active");
 });
 
 submitButton.addEventListener("click", () => {
@@ -61,10 +70,20 @@ submitButton.addEventListener("click", () => {
     addBookToLibrary(newBook);
     
     //Making add book modal not active
-    addBookModal.classList.remove("active");
+    addBookModal.classList.remove("modal-active");
+    overlay.classList.remove("overlay-active");
 
     loadLibrary();
   }
 })
 
+overlay.addEventListener("click", () => {
+  addBookModal.classList.remove("modal-active");
+  overlay.classList.remove("overlay-active");
+})
+
 theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not Read");
+addBookToLibrary(theHobbit);
+loadLibrary();
+
+console.log(Object.keys(theHobbit));

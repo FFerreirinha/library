@@ -8,13 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="header">    
+    <div id="header">    
         <header id="title">My Library</header>
         <button id="addbook">Add Book</button>
     </div>        
-    <div class="main-content">   
+    <div id="main-content">   
         <div id="display"></div>
-    </div> 
+    </div>         
+    <div id="overlay"></div>
     <div id="add-book-modal">
         <form id="add-book-form">
             <input type="text" placeholder="Title" id="book-title" name="title" required>
@@ -23,8 +24,10 @@
             <label for="read">Read?</label>
             <input type="checkbox" id="read" name="read">
             <button type="button" id="submit-button">Submit</button>
-        </form>
+        </form>    
+
     </div>
+
 
 
     <script src="script.js"></script>

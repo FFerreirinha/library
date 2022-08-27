@@ -4,13 +4,27 @@
     font-weight: bold;
 }
 
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(128, 128, 128, 0.5);
+    width: 0%;
+    height: 0%;
+}
+
+.overlay-active {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 body {
     margin: 0;
 
     font-family: Bison, Helvetica;
 }
 
-.header {
+#header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +59,7 @@ body {
     color: white;
 }
 
-.main-content {
+#main-content {
     padding-top: 255px;
     padding-left: 10px;
     padding-right: 10px;
@@ -62,18 +76,22 @@ body {
     height: 0vh;
     width: 0vw;
 
-    border: black 2px solid;
     border-radius: 25px;
+
+    box-shadow: 0px 0px 28px -1px rgba(0,0,0,0.75);
 }
 
-.active {
+.modal-active {
     opacity: 1 !important;    
     height: 50vh !important;
     width: 20vw !important;    
     position: fixed;
 
-    left: 38vw;
-    top: 26vh;
+    z-index: 1;
+    left: 40vw;
+    top: 30vh;
+
+    background-color: white;
 }
 
 form {
@@ -94,10 +112,16 @@ form > * {
 #display {
     display: flex;
     justify-content: left;
-    gap: 50px;
     flex-direction: row;
 }
 
 .book-card {
     border: 5px brown solid;
+    border-radius: 20px;
+
+    margin: 50px;
+    width: 15vw;
+    
+    font-size: 1.5em;
+    text-align: center;
 }
